@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* === Design System Tokens (pulled from Figma Simple DS) === */
+    :root {
+      /* Colors */
+      --sds-color-background-default-default: #ffffff;
+      --sds-color-background-default-secondary: #f5f5f5;
+      --sds-color-background-brand-default: #2c2c2c;
+      --sds-color-background-brand-tertiary: #f5f5f5;
+      --sds-color-background-neutral-tertiary: #e3e3e3;
+      --sds-color-background-positive-secondary: #cff7d3;
+      --sds-color-text-default-default: #1e1e1e;
+      --sds-color-text-default-secondary: #757575;
+      --sds-color-text-default-tertiary: #b3b3b3;
+      --sds-color-text-brand-on-brand: #f5f5f5;
+      --sds-color-text-brand-on-brand-secondary: #1e1e1e;
+      --sds-color-text-positive-on-positive-secondary: #02542d;
+      --sds-color-border-default-default: #d9d9d9;
+      --sds-color-border-brand-default: #2c2c2c;
+      --sds-color-border-neutral-secondary: #767676;
+      --sds-color-slate-200: #e3e3e3;
+
+      /* Spacing */
+      --sds-size-space-100: 4px;
+      --sds-size-space-200: 8px;
+      --sds-size-space-300: 12px;
+      --sds-size-space-400: 16px;
+      --sds-size-space-600: 24px;
+      --sds-size-space-800: 32px;
+      --sds-size-space-1200: 48px;
+      --sds-size-space-1600: 64px;
+      --sds-size-space-4000: 160px;
+
+      /* Radius */
+      --sds-size-radius-200: 8px;
+      --sds-size-radius-full: 9999px;
+
+      /* Stroke */
+      --sds-size-stroke-border: 1px;
+
+      /* Typography */
+      --sds-typography-body-font-family: 'Inter', sans-serif;
+      --sds-typography-heading-font-family: 'Inter', sans-serif;
+      --sds-typography-subheading-font-family: 'Inter', sans-serif;
+      --sds-typography-title-page-font-family: 'Inter', sans-serif;
+      --sds-typography-body-size-medium: 16px;
+      --sds-typography-body-size-small: 14px;
+      --sds-typography-heading-size-base: 24px;
+      --sds-typography-subheading-size-medium: 20px;
+      --sds-typography-title-page-size-base: 48px;
+      --sds-typography-subtitle-size-small: 24px;
+      --sds-typography-body-font-weight-regular: 400;
+      --sds-typography-body-font-weight-strong: 600;
+      --sds-typography-heading-font-weight: 600;
+      --sds-typography-subheading-font-weight: 400;
+      --sds-typography-title-page-font-weight: 700;
+
+      /* Icons */
+      --sds-size-icon-large: 40px;
+
+      /* Padding */
+      --sds-size-padding-lg: 16px;
+    }
+
+    /* === Reset === */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      font-weight: var(--sds-typography-body-font-weight-regular);
+      color: var(--sds-color-text-default-default);
+      background: var(--sds-color-background-default-default);
+      line-height: 1.4;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* === Header === */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sds-size-space-600);
+      padding: var(--sds-size-space-800);
+      border-bottom: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      background: var(--sds-color-background-default-default);
+    }
+    .header-logo { width: 40px; height: 35px; }
+    .header-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+      gap: var(--sds-size-space-200);
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .nav-pill {
+      padding: var(--sds-size-space-200);
+      border-radius: var(--sds-size-radius-200);
+      line-height: 1;
+      cursor: pointer;
+    }
+    .nav-pill.active {
+      background: var(--sds-color-background-brand-tertiary);
+      color: var(--sds-color-text-brand-on-brand-secondary);
+    }
+    .header-auth {
+      display: flex;
+      gap: var(--sds-size-space-300);
+      width: 178px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sds-size-space-200);
+      padding: var(--sds-size-space-200);
+      border-radius: var(--sds-size-radius-200);
+      border: var(--sds-size-stroke-border) solid;
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      font-weight: var(--sds-typography-body-font-weight-regular);
+      line-height: 1;
+      cursor: pointer;
+      overflow: hidden;
+      flex: 1;
+    }
+    .btn-secondary {
+      background: var(--sds-color-background-neutral-tertiary);
+      border-color: var(--sds-color-border-neutral-secondary);
+      color: var(--sds-color-text-default-default);
+    }
+    .btn-primary {
+      background: var(--sds-color-background-brand-default);
+      border-color: var(--sds-color-border-brand-default);
+      color: var(--sds-color-text-brand-on-brand);
+    }
+    .btn-primary-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sds-size-space-200);
+      padding: var(--sds-size-space-300);
+      border-radius: var(--sds-size-radius-200);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-brand-default);
+      background: var(--sds-color-background-brand-default);
+      color: var(--sds-color-text-brand-on-brand);
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      font-weight: var(--sds-typography-body-font-weight-regular);
+      line-height: 1;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* === Product Section === */
+    .page-product {
+      display: flex;
+      flex-direction: column;
+      padding: var(--sds-size-space-1600);
+      min-width: 240px;
+      background: var(--sds-color-background-default-default);
+    }
+    .product-section {
+      display: flex;
+      gap: var(--sds-size-space-1600);
+      position: relative;
+    }
+    .product-image {
+      flex: 1;
+      position: relative;
+      min-height: 400px;
+      background: var(--sds-color-slate-200);
+      border-radius: var(--sds-size-radius-200);
+      overflow: hidden;
+    }
+    .product-image-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.2;
+      position: absolute;
+      inset: 0;
+    }
+    .icon-button-heart {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 32px;
+      background: var(--sds-color-background-brand-default);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-brand-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .icon-button-heart svg { width: 16px; height: 16px; }
+    .product-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-600);
+      justify-content: center;
+    }
+    .product-body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-400);
+    }
+    .heading {
+      font-family: var(--sds-typography-heading-font-family);
+      font-size: var(--sds-typography-heading-size-base);
+      font-weight: var(--sds-typography-heading-font-weight);
+      line-height: 1.2;
+      letter-spacing: -0.48px;
+      color: var(--sds-color-text-default-default);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sds-size-space-200);
+      padding: var(--sds-size-space-200);
+      border-radius: var(--sds-size-radius-200);
+      background: var(--sds-color-background-positive-secondary);
+      color: var(--sds-color-text-positive-on-positive-secondary);
+      font-size: var(--sds-typography-body-size-medium);
+      line-height: 1;
+    }
+    .price {
+      display: flex;
+      align-items: flex-end;
+      font-family: var(--sds-typography-title-page-font-family);
+      font-weight: var(--sds-typography-title-page-font-weight);
+      color: var(--sds-color-text-default-default);
+    }
+    .price-currency {
+      font-size: var(--sds-typography-subtitle-size-small);
+      letter-spacing: -0.48px;
+      line-height: 1;
+    }
+    .price-amount {
+      font-size: var(--sds-typography-title-page-size-base);
+      letter-spacing: -0.96px;
+      line-height: 1;
+    }
+    .text-secondary {
+      color: var(--sds-color-text-default-secondary);
+    }
+    .product-fields {
+      display: flex;
+      gap: var(--sds-size-space-600);
+      width: 100%;
+    }
+    .select-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-200);
+    }
+    .select-field label {
+      font-weight: var(--sds-typography-body-font-weight-regular);
+      line-height: 1.4;
+    }
+    .select-field select {
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      background: var(--sds-color-background-default-default);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      border-radius: var(--sds-size-radius-200);
+      padding: var(--sds-size-space-300) var(--sds-size-space-400);
+      min-width: 240px;
+      width: 100%;
+      height: 40px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' stroke='%231e1e1e' stroke-width='1.5' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+    }
+
+    /* === Accordion === */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-400);
+      max-width: 640px;
+      width: 100%;
+    }
+    .accordion-item {
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      border-radius: var(--sds-size-radius-200);
+      padding: var(--sds-size-padding-lg);
+      background: var(--sds-color-background-default-default);
+    }
+    .accordion-item.collapsed {
+      background: var(--sds-color-background-default-secondary);
+    }
+    .accordion-title {
+      display: flex;
+      align-items: center;
+      gap: var(--sds-size-space-200);
+      width: 100%;
+      cursor: pointer;
+    }
+    .accordion-title span {
+      flex: 1;
+      font-weight: var(--sds-typography-body-font-weight-strong);
+      line-height: 1.4;
+    }
+    .accordion-title svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .accordion-content {
+      margin-top: var(--sds-size-space-200);
+      line-height: 1.4;
+    }
+
+    /* === Reviews === */
+    .reviews-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-1200);
+      padding: var(--sds-size-space-1600);
+      background: var(--sds-color-background-default-default);
+    }
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sds-size-space-1200);
+    }
+    .review-card {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-600);
+      padding: var(--sds-size-space-600);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      border-radius: var(--sds-size-radius-200);
+      background: var(--sds-color-background-default-default);
+    }
+    .rating {
+      display: flex;
+      gap: var(--sds-size-space-100);
+    }
+    .rating svg { width: 20px; height: 20px; }
+    .review-body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-100);
+    }
+    .avatar-block {
+      display: flex;
+      gap: var(--sds-size-space-300);
+      align-items: flex-start;
+    }
+    .avatar {
+      width: var(--sds-size-icon-large);
+      height: var(--sds-size-icon-large);
+      border-radius: var(--sds-size-radius-full);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .avatar-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 1;
+    }
+    .avatar-name {
+      font-weight: var(--sds-typography-body-font-weight-strong);
+      color: var(--sds-color-text-default-secondary);
+      line-height: 1.4;
+    }
+    .avatar-date {
+      color: var(--sds-color-text-default-tertiary);
+      line-height: 1.4;
+    }
+
+    /* === Newsletter === */
+    .newsletter-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sds-size-space-600);
+      padding: var(--sds-size-space-1600);
+      text-align: center;
+      background: var(--sds-color-background-default-default);
+    }
+    .newsletter-heading {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-200);
+      align-items: center;
+    }
+    .subheading {
+      font-family: var(--sds-typography-subheading-font-family);
+      font-size: var(--sds-typography-subheading-size-medium);
+      font-weight: var(--sds-typography-subheading-font-weight);
+      line-height: 1.2;
+      color: var(--sds-color-text-default-secondary);
+    }
+    .newsletter-form {
+      display: flex;
+      gap: var(--sds-size-space-300);
+      width: 338px;
+    }
+    .newsletter-form input {
+      flex: 1;
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      padding: var(--sds-size-space-300) var(--sds-size-space-400);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      border-radius: var(--sds-size-radius-200);
+      background: var(--sds-color-background-default-default);
+      min-width: 0;
+    }
+    .newsletter-form button {
+      padding: var(--sds-size-space-300);
+      border-radius: var(--sds-size-radius-200);
+      border: var(--sds-size-stroke-border) solid var(--sds-color-border-brand-default);
+      background: var(--sds-color-background-brand-default);
+      color: var(--sds-color-text-brand-on-brand);
+      font-family: var(--sds-typography-body-font-family);
+      font-size: var(--sds-typography-body-size-medium);
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    /* === Footer === */
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sds-size-space-400);
+      padding: var(--sds-size-space-800);
+      padding-bottom: var(--sds-size-space-4000);
+      border-top: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+      background: var(--sds-color-background-default-default);
+    }
+    .footer-brand {
+      width: 262px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-600);
+      min-width: 240px;
+    }
+    .footer-logo { width: 23px; height: 35px; }
+    .footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .footer-social {
+      display: flex;
+      gap: var(--sds-size-space-400);
+      align-items: center;
+    }
+    .footer-social img { width: 24px; height: 24px; }
+    .footer-links {
+      width: 262px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sds-size-space-300);
+    }
+    .footer-links-title {
+      font-weight: var(--sds-typography-body-font-weight-strong);
+      line-height: 1.4;
+      padding-bottom: var(--sds-size-space-400);
+    }
+    .footer-links a {
+      line-height: 1.4;
+      display: block;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+    /* === Utilities === */
+    .w-full { width: 100%; }
+    .max-w-page { max-width: 1200px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div class="max-w-page">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-logo">
+        <img src="https://www.figma.com/api/mcp/asset/ac03667c-c713-4001-8422-56ba8ba9646d" alt="Logo">
+      </div>
+      <nav class="header-nav">
+        <a class="nav-pill active" href="#">Products</a>
+        <a class="nav-pill" href="#">Solutions</a>
+        <a class="nav-pill" href="#">Community</a>
+        <a class="nav-pill" href="#">Resources</a>
+        <a class="nav-pill" href="#">Pricing</a>
+        <a class="nav-pill" href="#">Contact</a>
+        <a class="nav-pill" href="#">Link</a>
+      </nav>
+      <div class="header-auth">
+        <button class="btn btn-secondary">Sign in</button>
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="page-product">
+      <div class="product-section">
+        <div class="product-image">
+          <div class="icon-button-heart">
+            <svg fill="none" stroke="#f5f5f5" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <img class="product-image-placeholder" src="https://www.figma.com/api/mcp/asset/1376e43e-22f0-420d-97b0-6bbdfa91f5ce" alt="Product">
+        </div>
+        <div class="product-details">
+          <div class="product-body">
+            <div>
+              <h1 class="heading">Text Heading</h1>
+              <div style="display: flex; flex-direction: column; gap: var(--sds-size-space-100); margin-top: var(--sds-size-space-400);">
+                <span class="tag">Tag</span>
+                <div class="price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">50</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-secondary">Text</p>
+          </div>
+          <div class="product-fields">
+            <div class="select-field">
+              <label>Label</label>
+              <select><option>Value</option></select>
+            </div>
+            <div class="select-field">
+              <label>Label</label>
+              <select><option>Value</option></select>
+            </div>
+          </div>
+          <button class="btn-primary-full">Button</button>
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-title">
+                <span>Title</span>
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+              </div>
+              <div class="accordion-content">
+                Answer the frequently asked question in a simple sentence, a longish paragraph, or even in a list.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <h2 class="heading">Latest reviews</h2>
+      <div class="card-grid">
+        <div class="review-card">
+          <div class="rating">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-body">
+            <h3 class="heading">Review title</h3>
+            <p>Review body</p>
+          </div>
+          <div class="avatar-block">
+            <div class="avatar">
+              <img src="https://www.figma.com/api/mcp/asset/cd2028fd-a86c-4ee9-8269-a7ec5fb37f1b" alt="Reviewer">
+            </div>
+            <div class="avatar-info">
+              <span class="avatar-name">Reviewer name</span>
+              <span class="avatar-date">Date</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="rating">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-body">
+            <h3 class="heading">Review title</h3>
+            <p>Review body</p>
+          </div>
+          <div class="avatar-block">
+            <div class="avatar">
+              <img src="https://www.figma.com/api/mcp/asset/cd2028fd-a86c-4ee9-8269-a7ec5fb37f1b" alt="Reviewer">
+            </div>
+            <div class="avatar-info">
+              <span class="avatar-name">Reviewer name</span>
+              <span class="avatar-date">Date</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="rating">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="review-body">
+            <h3 class="heading">Review title</h3>
+            <p>Review body</p>
+          </div>
+          <div class="avatar-block">
+            <div class="avatar">
+              <img src="https://www.figma.com/api/mcp/asset/cd2028fd-a86c-4ee9-8269-a7ec5fb37f1b" alt="Reviewer">
+            </div>
+            <div class="avatar-info">
+              <span class="avatar-name">Reviewer name</span>
+              <span class="avatar-date">Date</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="newsletter-heading">
+        <h2 class="heading">Follow the latest trends</h2>
+        <p class="subheading">With our daily newsletter</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="you@example.com">
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="https://www.figma.com/api/mcp/asset/7186cb70-27ed-408e-9799-0f11a3817674" alt="Logo">
+        </div>
+        <div class="footer-social">
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/f3979adb-fa32-451e-a28d-fc94355e7813" alt="X"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/e94ee9d2-3ee9-44d6-8acf-c6e179392095" alt="Instagram"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/00d02b03-07c5-41e9-8afa-cccb925546a7" alt="YouTube"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/2cae0464-7301-46ea-aa71-613788359cac" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Use cases</div>
+        <a href="#">UI design</a>
+        <a href="#">UX design</a>
+        <a href="#">Wireframing</a>
+        <a href="#">Diagramming</a>
+        <a href="#">Brainstorming</a>
+        <a href="#">Online whiteboard</a>
+        <a href="#">Team collaboration</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Explore</div>
+        <a href="#">Design</a>
+        <a href="#">Prototyping</a>
+        <a href="#">Development features</a>
+        <a href="#">Design systems</a>
+        <a href="#">Collaboration features</a>
+        <a href="#">Design process</a>
+        <a href="#">FigJam</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Resources</div>
+        <a href="#">Blog</a>
+        <a href="#">Best practices</a>
+        <a href="#">Colors</a>
+        <a href="#">Color wheel</a>
+        <a href="#">Support</a>
+        <a href="#">Developers</a>
+        <a href="#">Resource library</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
