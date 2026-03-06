@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditations — Stillness</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M20 10c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"/></svg>
+        Stillness
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meditations.html" class="active">Meditations</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <h1 class="fade-in">Find Your Practice</h1>
+    <p class="fade-in fade-in-delay-1">Explore guided meditations for every moment and mood.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="category-filter fade-in">
+        <button class="category-btn active" onclick="filterCards('all',this)">All</button>
+        <button class="category-btn" onclick="filterCards('sleep',this)">🌙 Sleep</button>
+        <button class="category-btn" onclick="filterCards('focus',this)">🎯 Focus</button>
+        <button class="category-btn" onclick="filterCards('stress',this)">🍃 Stress Relief</button>
+        <button class="category-btn" onclick="filterCards('beginner',this)">🌱 Beginners</button>
+      </div>
+
+      <div class="card-grid card-grid-3" id="meditation-grid">
+
+        <!-- Sleep -->
+        <div class="card meditation-card fade-in" data-cat="sleep">
+          <div class="meditation-card-header sleep">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M36 24A14 14 0 0118 8a18 18 0 1018 16z"/></svg>
+          </div>
+          <span class="meditation-tag sleep">Sleep</span>
+          <h3>Moonlit Drift</h3>
+          <p>A gentle body scan to release tension and ease into deep, restful sleep.</p>
+          <div class="meditation-meta"><span>🕐 20 min</span><span>☁️ Beginner</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-1" data-cat="sleep">
+          <div class="meditation-card-header sleep">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M36 24A14 14 0 0118 8a18 18 0 1018 16z"/></svg>
+          </div>
+          <span class="meditation-tag sleep">Sleep</span>
+          <h3>Ocean Lullaby</h3>
+          <p>Wave sounds paired with a calming narrative to carry you into dreams.</p>
+          <div class="meditation-meta"><span>🕐 30 min</span><span>☁️ All Levels</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-2" data-cat="sleep">
+          <div class="meditation-card-header sleep">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M36 24A14 14 0 0118 8a18 18 0 1018 16z"/></svg>
+          </div>
+          <span class="meditation-tag sleep">Sleep</span>
+          <h3>Starlight Rest</h3>
+          <p>Visualize a quiet night sky as you slowly release the day.</p>
+          <div class="meditation-meta"><span>🕐 25 min</span><span>☁️ Beginner</span></div>
+        </div>
+
+        <!-- Focus -->
+        <div class="card meditation-card fade-in" data-cat="focus">
+          <div class="meditation-card-header focus">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3"/></svg>
+          </div>
+          <span class="meditation-tag focus">Focus</span>
+          <h3>Sharp Mind</h3>
+          <p>A concentration practice to sharpen attention before deep work.</p>
+          <div class="meditation-meta"><span>🕐 10 min</span><span>⚡ Intermediate</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-1" data-cat="focus">
+          <div class="meditation-card-header focus">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3"/></svg>
+          </div>
+          <span class="meditation-tag focus">Focus</span>
+          <h3>Flow State</h3>
+          <p>Enter a state of effortless concentration with this breath-centered session.</p>
+          <div class="meditation-meta"><span>🕐 15 min</span><span>⚡ Intermediate</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-2" data-cat="focus">
+          <div class="meditation-card-header focus">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3"/></svg>
+          </div>
+          <span class="meditation-tag focus">Focus</span>
+          <h3>Clarity Break</h3>
+          <p>A quick reset for when your mind feels scattered. Perfect mid-afternoon.</p>
+          <div class="meditation-meta"><span>🕐 5 min</span><span>☁️ Beginner</span></div>
+        </div>
+
+        <!-- Stress -->
+        <div class="card meditation-card fade-in" data-cat="stress">
+          <div class="meditation-card-header stress">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 32c4-2 7-8 7-16M18 32c4-2 7-8 7-16M24 32c4-2 7-8 7-16M30 32c4-2 7-8 7-16"/><path d="M8 36h32"/></svg>
+          </div>
+          <span class="meditation-tag stress">Stress Relief</span>
+          <h3>Let It Go</h3>
+          <p>Release the tension you're holding with progressive relaxation guidance.</p>
+          <div class="meditation-meta"><span>🕐 15 min</span><span>☁️ All Levels</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-1" data-cat="stress">
+          <div class="meditation-card-header stress">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 32c4-2 7-8 7-16M18 32c4-2 7-8 7-16M24 32c4-2 7-8 7-16M30 32c4-2 7-8 7-16"/><path d="M8 36h32"/></svg>
+          </div>
+          <span class="meditation-tag stress">Stress Relief</span>
+          <h3>Safe Harbor</h3>
+          <p>Visualize a peaceful sanctuary where worries dissolve naturally.</p>
+          <div class="meditation-meta"><span>🕐 20 min</span><span>☁️ Beginner</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-2" data-cat="stress">
+          <div class="meditation-card-header stress">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 32c4-2 7-8 7-16M18 32c4-2 7-8 7-16M24 32c4-2 7-8 7-16M30 32c4-2 7-8 7-16"/><path d="M8 36h32"/></svg>
+          </div>
+          <span class="meditation-tag stress">Stress Relief</span>
+          <h3>Anxiety Ease</h3>
+          <p>Grounding techniques and slow breathing to calm anxious thoughts.</p>
+          <div class="meditation-meta"><span>🕐 12 min</span><span>⚡ Intermediate</span></div>
+        </div>
+
+        <!-- Beginners -->
+        <div class="card meditation-card fade-in" data-cat="beginner">
+          <div class="meditation-card-header beginner">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8v4M24 36v4M8 24h4M36 24h4"/><circle cx="24" cy="24" r="8"/></svg>
+          </div>
+          <span class="meditation-tag beginner">Beginners</span>
+          <h3>First Breath</h3>
+          <p>Your very first meditation. Learn the basics of sitting, breathing, and being.</p>
+          <div class="meditation-meta"><span>🕐 5 min</span><span>🌱 Beginner</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-1" data-cat="beginner">
+          <div class="meditation-card-header beginner">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8v4M24 36v4M8 24h4M36 24h4"/><circle cx="24" cy="24" r="8"/></svg>
+          </div>
+          <span class="meditation-tag beginner">Beginners</span>
+          <h3>Body Awareness</h3>
+          <p>A simple body scan to connect with physical sensations and ground yourself.</p>
+          <div class="meditation-meta"><span>🕐 10 min</span><span>🌱 Beginner</span></div>
+        </div>
+
+        <div class="card meditation-card fade-in fade-in-delay-2" data-cat="beginner">
+          <div class="meditation-card-header beginner">
+            <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8v4M24 36v4M8 24h4M36 24h4"/><circle cx="24" cy="24" r="8"/></svg>
+          </div>
+          <span class="meditation-tag beginner">Beginners</span>
+          <h3>7-Day Foundation</h3>
+          <p>A week-long course building your practice step by step, day by day.</p>
+          <div class="meditation-meta"><span>🕐 7×10 min</span><span>🌱 Beginner</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-section fade-in">
+        <h2>Unlock All Meditations</h2>
+        <p>Get unlimited access to our full library with Premium.</p>
+        <a href="pricing.html" class="btn btn-lg">View Plans</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="20" cy="20" r="16"/><path d="M20 10c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"/></svg> Stillness</a>
+          <p>Guided meditation for a calmer, more present life.</p>
+        </div>
+        <div><h4>Practice</h4><ul><li><a href="meditations.html">Meditations</a></li><li><a href="meditations.html">Sleep</a></li><li><a href="meditations.html">Focus</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Support</h4><ul><li><a href="contact.html">Help Center</a></li><li><a href="contact.html">FAQ</a></li><li><a href="#">Privacy</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stillness. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    function filterCards(cat, btn) {
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.meditation-card').forEach(c => {
+        c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); }});
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20));
+  </script>
+</body>
+</html>

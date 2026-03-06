@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stillness — Find Your Calm</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="20" r="16"/>
+          <path d="M20 10c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"/>
+        </svg>
+        Stillness
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="meditations.html">Meditations</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-content">
+      <div class="hero-icon fade-in">
+        <svg viewBox="0 0 80 80" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 16c-8 10-16 18-16 26a16 16 0 0032 0c0-8-8-16-16-26z"/>
+          <circle cx="40" cy="42" r="6"/>
+        </svg>
+      </div>
+      <h1 class="fade-in fade-in-delay-1">Breathe. Be Still.<br>Be Present.</h1>
+      <p class="fade-in fade-in-delay-2">Guided meditations crafted to bring peace to your everyday life. Start your journey to mindfulness in just five minutes a day.</p>
+      <div class="hero-buttons fade-in fade-in-delay-3">
+        <a href="meditations.html" class="btn btn-primary btn-lg">Start Meditating</a>
+        <a href="about.html" class="btn btn-secondary btn-lg">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="stats fade-in">
+        <div class="stat">
+          <div class="stat-number">2M+</div>
+          <div class="stat-label">Minutes Meditated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Guided Sessions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px;">
+        <h2 class="fade-in">Everything You Need to Find Peace</h2>
+        <p class="fade-in fade-in-delay-1" style="max-width:520px;margin:16px auto 0;">Simple tools designed to help you build a lasting meditation practice.</p>
+      </div>
+      <div class="card-grid card-grid-3">
+        <div class="card fade-in">
+          <div class="feature-icon sage">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2"/></svg>
+          </div>
+          <h3>Daily Sessions</h3>
+          <p>Fresh guided meditations every day, from 5 to 45 minutes. Fit mindfulness into any schedule.</p>
+        </div>
+        <div class="card fade-in fade-in-delay-1">
+          <div class="feature-icon lavender">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3c-3 5-8 9-8 14a8 8 0 0016 0c0-5-5-9-8-14z"/></svg>
+          </div>
+          <h3>Sleep Stories</h3>
+          <p>Drift off with calming narrations and soundscapes designed to quiet a restless mind.</p>
+        </div>
+        <div class="card fade-in fade-in-delay-2">
+          <div class="feature-icon sage">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-4 5-7 10-7s8 3 10 7"/><circle cx="14" cy="8" r="5"/></svg>
+          </div>
+          <h3>Personal Progress</h3>
+          <p>Track your journey with streaks, milestones, and gentle reminders to stay consistent.</p>
+        </div>
+        <div class="card fade-in">
+          <div class="feature-icon lavender">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-4-7.5"/><path d="M21 4v8h-8"/></svg>
+          </div>
+          <h3>Breathing Exercises</h3>
+          <p>Animated breath guides to reduce anxiety in moments — no experience required.</p>
+        </div>
+        <div class="card fade-in fade-in-delay-1">
+          <div class="feature-icon sage">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4M3 14h4M21 14h4M14 21v4M6.3 6.3l2.8 2.8M18.9 6.3l-2.8 2.8"/></svg>
+          </div>
+          <h3>Morning Rituals</h3>
+          <p>Start each day with intention through curated morning meditation programs.</p>
+        </div>
+        <div class="card fade-in fade-in-delay-2">
+          <div class="feature-icon lavender">
+            <svg viewBox="0 0 28 28" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3c6 0 11 5 11 11s-5 11-11 11S3 20 3 14"/><path d="M3 14c3-2 6-3 11-3"/></svg>
+          </div>
+          <h3>Offline Access</h3>
+          <p>Download your favourite sessions and meditate anywhere, even without connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background:var(--ivory);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px;">
+        <h2 class="fade-in">Voices of Calm</h2>
+        <p class="fade-in fade-in-delay-1">Hear from people who found stillness.</p>
+      </div>
+      <div class="card-grid card-grid-3">
+        <div class="card testimonial-card fade-in">
+          <div class="testimonial-avatar" style="background:rgba(156,175,136,0.15);">🌿</div>
+          <p class="testimonial-text">"Stillness helped me sleep through the night for the first time in years. The sleep stories are magical."</p>
+          <div class="testimonial-author">Sarah M.</div>
+          <div class="testimonial-role">Practicing for 8 months</div>
+        </div>
+        <div class="card testimonial-card fade-in fade-in-delay-1">
+          <div class="testimonial-avatar" style="background:rgba(184,169,201,0.15);">🌙</div>
+          <p class="testimonial-text">"Five minutes each morning completely changed how I handle stress at work. This app is my anchor."</p>
+          <div class="testimonial-author">James K.</div>
+          <div class="testimonial-role">Practicing for 1 year</div>
+        </div>
+        <div class="card testimonial-card fade-in fade-in-delay-2">
+          <div class="testimonial-avatar" style="background:rgba(156,175,136,0.15);">🍃</div>
+          <p class="testimonial-text">"As a beginner, I was intimidated by meditation. Stillness made it feel natural and approachable."</p>
+          <div class="testimonial-author">Priya L.</div>
+          <div class="testimonial-role">Practicing for 3 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section fade-in">
+        <h2>Begin Your Journey Today</h2>
+        <p>No experience needed. Just a few quiet minutes and an open mind.</p>
+        <a href="meditations.html" class="btn btn-lg">Explore Meditations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><circle cx="20" cy="20" r="16"/><path d="M20 10c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"/></svg>
+            Stillness
+          </a>
+          <p>Guided meditation for a calmer, more present life.</p>
+        </div>
+        <div>
+          <h4>Practice</h4>
+          <ul>
+            <li><a href="meditations.html">Meditations</a></li>
+            <li><a href="meditations.html">Sleep</a></li>
+            <li><a href="meditations.html">Focus</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Help Center</a></li>
+            <li><a href="contact.html">FAQ</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stillness. All rights reserved. Made with mindfulness.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple scroll animation observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); }});
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
+    // Nav scroll
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20));
+  </script>
+</body>
+</html>
