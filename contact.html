@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="max-w-page">
+    <header class="header">
+      <div class="header-logo">
+        <a href="product-detail.html">
+          <img src="https://www.figma.com/api/mcp/asset/ac03667c-c713-4001-8422-56ba8ba9646d" alt="Logo">
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a class="nav-pill" href="product-detail.html">Products</a>
+        <a class="nav-pill" href="solutions.html">Solutions</a>
+        <a class="nav-pill" href="community.html">Community</a>
+        <a class="nav-pill" href="resources.html">Resources</a>
+        <a class="nav-pill" href="pricing.html">Pricing</a>
+        <a class="nav-pill active" href="contact.html">Contact</a>
+        <a class="nav-pill" href="about.html">About</a>
+      </nav>
+      <div class="header-auth">
+        <button class="btn btn-secondary">Sign in</button>
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </header>
+
+    <section class="page-content">
+      <div style="padding: var(--sds-size-space-1600); max-width: 600px; margin: 0 auto;">
+        <h1 class="heading" style="font-size: var(--sds-typography-title-page-size-base); margin-bottom: var(--sds-size-space-600); text-align: center;">Get in Touch</h1>
+        <p class="text-secondary" style="text-align: center; margin-bottom: var(--sds-size-space-1200);">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+
+        <form style="display: flex; flex-direction: column; gap: var(--sds-size-space-600);">
+          <div class="select-field">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" style="font-family: var(--sds-typography-body-font-family); font-size: var(--sds-typography-body-size-medium); padding: var(--sds-size-space-300) var(--sds-size-space-400); border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default); border-radius: var(--sds-size-radius-200); background: var(--sds-color-background-default-default); width: 100%;">
+          </div>
+
+          <div class="select-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" style="font-family: var(--sds-typography-body-font-family); font-size: var(--sds-typography-body-size-medium); padding: var(--sds-size-space-300) var(--sds-size-space-400); border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default); border-radius: var(--sds-size-radius-200); background: var(--sds-color-background-default-default); width: 100%;">
+          </div>
+
+          <div class="select-field">
+            <label>Subject</label>
+            <select>
+              <option>General Inquiry</option>
+              <option>Sales</option>
+              <option>Support</option>
+              <option>Partnership</option>
+            </select>
+          </div>
+
+          <div class="select-field">
+            <label>Message</label>
+            <textarea placeholder="Your message..." style="font-family: var(--sds-typography-body-font-family); font-size: var(--sds-typography-body-size-medium); padding: var(--sds-size-space-300) var(--sds-size-space-400); border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default); border-radius: var(--sds-size-radius-200); background: var(--sds-color-background-default-default); width: 100%; min-height: 150px; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary-full">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="https://www.figma.com/api/mcp/asset/7186cb70-27ed-408e-9799-0f11a3817674" alt="Logo">
+        </div>
+        <div class="footer-social">
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/f3979adb-fa32-451e-a28d-fc94355e7813" alt="X"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/e94ee9d2-3ee9-44d6-8acf-c6e179392095" alt="Instagram"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/00d02b03-07c5-41e9-8afa-cccb925546a7" alt="YouTube"></a>
+          <a href="#"><img src="https://www.figma.com/api/mcp/asset/2cae0464-7301-46ea-aa71-613788359cac" alt="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Use cases</div>
+        <a href="#">UI design</a>
+        <a href="#">UX design</a>
+        <a href="#">Wireframing</a>
+        <a href="#">Diagramming</a>
+        <a href="#">Brainstorming</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Explore</div>
+        <a href="#">Design</a>
+        <a href="#">Prototyping</a>
+        <a href="#">Development features</a>
+        <a href="#">Design systems</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-title">Resources</div>
+        <a href="#">Blog</a>
+        <a href="#">Best practices</a>
+        <a href="#">Support</a>
+        <a href="#">Developers</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
